@@ -124,9 +124,9 @@ class NpcRandomizer(AbstractRandomizer):
             # Some [CS:K]...[CR] needs replacing for Kecleon, Chansey, Marowak, Spinda, Chimecho, Mime Jr., Electivire, and all the Pokemon under the Adventure Log.
             # We need to specifically select string block regions to apply this to.
             csk_npc_text = re.compile(
-                r"\[CS:K]([^\[]*\s?[^\[]*)("
+                r"\[CS:K]([^\[]*)("
                 + "|".join(sorted_actor_names)
-                + r")([^\[]*\s?[^\[]*)\[CR]"
+                + r")([^\[]*)\[CR]"
             )
             csk_replace_regions = [
                 self.static_data.string_index_data.string_blocks.get(
