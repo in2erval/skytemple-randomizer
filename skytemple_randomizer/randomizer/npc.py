@@ -199,14 +199,16 @@ class NpcRandomizer(AbstractRandomizer):
             ]
 
             for idx, text in enumerate(lang_string_file.strings):
-                if idx == 10885:
-                    print(text)
                 new_text = standard_npc_text.sub(
                     lambda match: match.expand(
                         f"[CS:{match.group(1)}]{match.group(2)}{mapped_actor_names[match.group(3)]}{match.group(4)}[CR]"
                     ),
                     text,
                 )
+                if idx == 3889:
+                    print(text)
+                    print(new_text)
+                    print(standard_npc_text)
                 if any(
                     block.begin < idx < block.end
                     for block in csk_replace_regions
